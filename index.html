@@ -5,136 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meigs County Tigers - Blanket Sale</title>
   <style>
-    :root {
-      --primary: #111111;
-      --accent: #d97706; /* Gold/Tiger Accent */
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      margin: 0;
       padding: 20px;
+      box-sizing: border-box;
     }
 
     .card {
-      background: var(--card-bg);
+      background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-      max-width: 440px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
       width: 100%;
       padding: 32px 24px;
       text-align: center;
     }
 
-    .badge {
-      display: inline-block;
-      background-color: #fef3c7;
-      color: #92400e;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     h1 {
-      font-size: 1.6rem;
-      color: var(--primary);
-      margin-bottom: 8px;
+      font-size: 1.5rem;
+      color: #111111;
+      margin-bottom: 6px;
     }
 
-    p.subtitle {
-      font-size: 0.95rem;
+    p {
       color: #64748b;
+      font-size: 0.95rem;
       margin-bottom: 24px;
     }
 
     .btn {
-      display: inline-block;
-      width: 100%;
-      background-color: var(--primary);
+      display: block;
+      background-color: #111111;
       color: #ffffff;
       font-size: 1.1rem;
       font-weight: 600;
       padding: 16px 20px;
       border-radius: 10px;
       text-decoration: none;
-      transition: background-color 0.2s, transform 0.1s;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .btn:active {
-      transform: scale(0.98);
+    .btn:hover {
       background-color: #333333;
     }
 
-    .instructions {
+    .note {
       margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
       font-size: 0.85rem;
-      color: #64748b;
+      color: #94a3b8;
       line-height: 1.4;
-    }
-
-    .instructions strong {
-      color: var(--text);
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <span class="badge">Official Fundraiser</span>
     <h1>Meigs County Tigers</h1>
-    <p class="subtitle">Blanket Order Form</p>
+    <p>Official Blanket Order Form</p>
 
+    <!-- DIRECT LINK TO GOOGLE APPS SCRIPT -->
     <a 
-      id="order-link" 
       href="https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec" 
       target="_blank" 
       rel="noopener noreferrer" 
       class="btn"
     >
-      Open Order Form &rarr;
+      Click Here to Order Blankets &rarr;
     </a>
 
-    <div class="instructions">
-      <p><strong>Note for Facebook / Messenger users:</strong></p>
-      <p>If the button doesn't open, tap the <strong>•••</strong> (three dots) in the top right corner and choose <strong>"Open in Browser"</strong> or <strong>"Open in Safari / Chrome"</strong>.</p>
+    <div class="note">
+      If opening from Facebook or Instagram, tap the button above or select <strong>"Open in Browser"</strong> from your menu.
     </div>
   </div>
-
-  <script>
-    (function() {
-      var targetUrl = "https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec";
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-
-      // Detect common in-app webviews (FB Messenger, Facebook app, Instagram)
-      var isInApp = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1) || (ua.indexOf("Instagram") > -1);
-
-      // If NOT in an restricted in-app browser, automatically redirect right away
-      if (!isInApp) {
-        window.location.href = targetUrl;
-      }
-    })();
-  </script>
 
 </body>
 </html>
