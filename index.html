@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Meigs County Tigers - Blanket Sale</title>
 
-  <meta name="description" content="Official Meigs County Tigers Blanket Fundraiser Order Form">
+  <meta
+    name="description"
+    content="Official Meigs County Tigers Blanket Fundraiser Order Form"
+  >
 
   <style>
     :root {
-      --primary: #111111;
-      --gold: #d97706;
-      --gold-light: #fef3c7;
-      --gold-dark: #92400e;
-      --background: #f8fafc;
-      --card: #ffffff;
+      --black: #111111;
+      --orange: #d97706;
+      --orange-dark: #92400e;
+      --orange-light: #fef3c7;
+      --background: #f4f4f4;
+      --white: #ffffff;
       --text: #1e293b;
       --muted: #64748b;
       --border: #e2e8f0;
@@ -27,12 +31,12 @@
       padding: 0;
     }
 
-    html,
-    body {
-      min-height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       background: var(--background);
       color: var(--text);
 
@@ -45,248 +49,411 @@
         Arial,
         sans-serif;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       min-height: 100vh;
-      padding: 24px;
     }
 
-    .card {
-      width: 100%;
-      max-width: 520px;
+    /* ---------------------------
+       HEADER
+    --------------------------- */
 
-      background: var(--card);
+    .site-header {
+      background: var(--black);
+      color: var(--white);
+      border-bottom: 6px solid var(--orange);
 
-      border-radius: 22px;
-
-      padding: 42px 32px;
+      padding: 22px 20px;
 
       text-align: center;
+    }
 
-      box-shadow:
-        0 20px 40px rgba(15, 23, 42, 0.08),
-        0 4px 12px rgba(15, 23, 42, 0.05);
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .badge {
       display: inline-block;
 
-      background: var(--gold-light);
-      color: var(--gold-dark);
+      background: var(--orange);
+      color: var(--white);
 
-      font-size: 14px;
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1px;
-
-      padding: 8px 18px;
+      padding: 7px 16px;
 
       border-radius: 999px;
 
-      margin-bottom: 24px;
+      font-size: 13px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      margin-bottom: 14px;
     }
 
-    h1 {
-      color: var(--primary);
+    .site-header h1 {
+      margin: 0;
 
-      font-size: clamp(28px, 6vw, 40px);
-      line-height: 1.15;
-
-      margin-bottom: 10px;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.1;
     }
 
-    .subtitle {
+    .site-header p {
+      margin-top: 10px;
+
+      color: #dddddd;
+
+      font-size: clamp(16px, 3vw, 20px);
+    }
+
+    /* ---------------------------
+       PAGE CONTENT
+    --------------------------- */
+
+    .page {
+      width: 100%;
+
+      max-width: 1180px;
+
+      margin: 0 auto;
+
+      padding: 30px 18px 50px;
+    }
+
+    /* ---------------------------
+       INTRO CARD
+    --------------------------- */
+
+    .intro-card {
+      max-width: 900px;
+
+      margin: 0 auto 24px;
+
+      background: var(--white);
+
+      border-radius: 16px;
+
+      padding: 24px;
+
+      text-align: center;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro-card h2 {
+      color: var(--black);
+
+      font-size: clamp(23px, 4vw, 32px);
+
+      margin-bottom: 8px;
+    }
+
+    .intro-card p {
       color: var(--muted);
 
-      font-size: 20px;
+      font-size: 17px;
 
-      margin-bottom: 32px;
+      line-height: 1.55;
     }
 
-    .btn {
-      display: flex;
+    .price-highlight {
+      display: inline-block;
+
+      margin-top: 16px;
+
+      padding: 10px 22px;
+
+      background: var(--orange-light);
+
+      color: var(--orange-dark);
+
+      font-size: 22px;
+      font-weight: 800;
+
+      border-radius: 10px;
+    }
+
+    /* ---------------------------
+       EMBEDDED FORM
+    --------------------------- */
+
+    .form-wrapper {
+      width: 100%;
+
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      background: var(--white);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .form-header {
+      background: var(--black);
+
+      color: var(--white);
+
+      padding: 16px 22px;
+
+      text-align: center;
+    }
+
+    .form-header h2 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .form-header p {
+      margin-top: 5px;
+
+      color: #d1d5db;
+
+      font-size: 14px;
+    }
+
+    .iframe-container {
+      width: 100%;
+      background: var(--white);
+    }
+
+    #orderFormFrame {
+      display: block;
+
+      width: 100%;
+
+      height: 1250px;
+
+      margin: 0;
+
+      border: 0;
+
+      background: var(--white);
+    }
+
+    /* ---------------------------
+       FALLBACK AREA
+    --------------------------- */
+
+    .fallback {
+      max-width: 900px;
+
+      margin: 24px auto 0;
+
+      background: var(--white);
+
+      border-radius: 14px;
+
+      padding: 20px;
+
+      text-align: center;
+
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .fallback p {
+      color: var(--muted);
+
+      line-height: 1.5;
+
+      margin-bottom: 14px;
+    }
+
+    .fallback-button {
+      display: inline-flex;
 
       align-items: center;
       justify-content: center;
 
-      width: 100%;
+      min-height: 48px;
 
-      min-height: 64px;
+      padding: 12px 22px;
 
-      background: var(--primary);
-      color: #ffffff;
+      background: var(--black);
 
-      font-size: 20px;
-      font-weight: 700;
+      color: var(--white);
 
       text-decoration: none;
 
-      border-radius: 14px;
+      font-weight: 700;
 
-      padding: 18px 24px;
-
-      cursor: pointer;
+      border-radius: 9px;
 
       transition:
-        transform 0.15s ease,
         background-color 0.15s ease,
-        box-shadow 0.15s ease;
-
-      box-shadow:
-        0 8px 15px rgba(0, 0, 0, 0.12);
+        transform 0.15s ease;
     }
 
-    .btn:hover {
-      background: #292929;
-
+    .fallback-button:hover {
+      background: #333333;
       transform: translateY(-1px);
-
-      box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.16);
     }
 
-    .btn:active {
-      transform: scale(0.98);
+    /* ---------------------------
+       FOOTER
+    --------------------------- */
+
+    footer {
+      margin-top: 35px;
+
+      padding: 22px 18px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 14px;
     }
 
-    .instructions {
-      margin-top: 32px;
+    /* ---------------------------
+       LOADING MESSAGE
+    --------------------------- */
 
-      padding-top: 26px;
+    .loading-message {
+      padding: 25px;
 
-      border-top: 1px solid var(--border);
+      text-align: center;
 
       color: var(--muted);
 
       font-size: 16px;
-      line-height: 1.55;
     }
 
-    .instructions strong {
-      color: var(--text);
-    }
+    /* ---------------------------
+       MOBILE
+    --------------------------- */
 
-    .instructions p + p {
-      margin-top: 7px;
-    }
+    @media (max-width: 850px) {
 
-    .small-note {
-      margin-top: 18px;
+      .page {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
 
-      color: #94a3b8;
+      .intro-card {
+        border-radius: 12px;
+        padding: 20px 16px;
+      }
 
-      font-size: 13px;
-      line-height: 1.45;
+      .form-wrapper {
+        border-radius: 12px;
+      }
+
+      #orderFormFrame {
+        height: 1500px;
+      }
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 16px;
+
+      .site-header {
+        padding: 20px 14px;
       }
 
-      .card {
-        padding: 34px 22px;
-        border-radius: 18px;
+      .page {
+        padding-top: 18px;
       }
 
-      .subtitle {
-        font-size: 18px;
+      .form-header {
+        padding: 14px;
       }
 
-      .btn {
-        font-size: 18px;
-        min-height: 60px;
+      #orderFormFrame {
+        height: 1650px;
       }
 
-      .instructions {
-        font-size: 15px;
+      .fallback {
+        padding: 18px 14px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <main class="card">
+  <!-- =========================================
+       HEADER
+  ========================================== -->
 
-    <div class="badge">
-      Official Fundraiser
-    </div>
+  <header class="site-header">
 
-    <h1>
-      Meigs County Tigers
-    </h1>
+    <div class="header-inner">
 
-    <p class="subtitle">
-      Blanket Order Form
-    </p>
+      <div class="badge">
+        Official Fundraiser
+      </div>
 
-    <a
-      id="orderButton"
-      class="btn"
-      href="https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec"
-    >
-      Open Order Form&nbsp; →
-    </a>
-
-    <div class="instructions">
+      <h1>
+        Meigs County Tigers
+      </h1>
 
       <p>
-        <strong>Facebook / Messenger users:</strong>
-      </p>
-
-      <p>
-        If the order form does not open correctly,
-        tap the <strong>•••</strong> menu in the top-right corner
-        and select <strong>Open in Browser</strong>,
-        <strong>Open in Safari</strong>, or
-        <strong>Open in Chrome</strong>.
+        Blanket Fundraiser
       </p>
 
     </div>
 
-    <p class="small-note">
-      The order form will open securely through Google Apps Script.
-    </p>
+  </header>
 
-  </main>
 
-  <script>
-    /*
-      IMPORTANT:
-      Do not use a Markdown-formatted link here.
+  <!-- =========================================
+       MAIN CONTENT
+  ========================================== -->
 
-      CORRECT:
-      https://script.google.com/macros/s/DEPLOYMENT_ID/exec
+  <main class="page">
 
-      WRONG:
-      [https://script.google.com/...](https://script.google.com/...)
-    */
 
-    const FORM_URL =
-      "https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec";
+    <!-- INTRO -->
 
-    const orderButton = document.getElementById("orderButton");
+    <section class="intro-card">
 
-    orderButton.href = FORM_URL;
+      <h2>
+        Order Your Meigs County Tigers Blanket
+      </h2>
 
-    /*
-      Use a normal same-window navigation.
+      <p>
+        Complete the order form below to reserve your blanket.
+        You may order one or multiple blankets.
+        Payment may be made by cash or check.
+      </p>
 
-      This tends to behave more reliably inside
-      Facebook and Messenger than target="_blank".
-    */
+      <div class="price-highlight">
+        $40 Each
+      </div>
 
-    orderButton.addEventListener("click", function(event) {
-      event.preventDefault();
+    </section>
 
-      window.location.href = FORM_URL;
-    });
-  </script>
 
-</body>
-</html>
+    <!-- =========================================
+         EMBEDDED GOOGLE APPS SCRIPT FORM
+    ========================================== -->
+
+    <section class="form-wrapper">
+
+      <div class="form-header">
+
+        <h2>
+          Blanket Order Form
+        </h2>
+
+        <p>
+          Complete all required information below.
+        </p>
+
+      </div>
+
+
+      <div class="iframe-container">
+
+        <iframe
+          id="orderFormFrame"
