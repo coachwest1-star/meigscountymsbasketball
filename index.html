@@ -17,7 +17,6 @@
   >
 
   <style>
-
     :root {
       --black: #111111;
       --orange: #c65320;
@@ -240,7 +239,6 @@
     }
 
     @media (max-width: 900px) {
-
       .page {
         grid-template-columns: 1fr;
         padding: 20px;
@@ -255,7 +253,6 @@
     }
 
     @media (max-width: 600px) {
-
       .header-inner {
         padding: 15px 18px;
       }
@@ -277,7 +274,6 @@
         font-size: 26px;
       }
     }
-
   </style>
 </head>
 
@@ -288,7 +284,6 @@
     <div class="header-inner">
 
       <div>
-
         <h1>
           Meigs County Tigers Blanket Sale
         </h1>
@@ -296,7 +291,6 @@
         <p>
           Order your blanket today for $40 each.
         </p>
-
       </div>
 
     </div>
@@ -310,7 +304,7 @@
 
       <img
         class="blanket-image"
-        src="https://coachwest1-star.github.io/meigscountymsbasketball/blanket.jpg"
+        src="YOUR-BLANKET-IMAGE-URL-HERE"
         alt="Meigs County Tigers Blanket"
       >
 
@@ -342,8 +336,12 @@
       </p>
 
 
-      <form id="orderForm">
-
+      <form
+        id="orderForm"
+        method="POST"
+        action="https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec"
+        target="submissionFrame"
+      >
 
         <div class="row">
 
@@ -493,8 +491,14 @@
           class="message"
         ></div>
 
-
       </form>
+
+
+      <iframe
+        name="submissionFrame"
+        id="submissionFrame"
+        style="display:none;"
+      ></iframe>
 
     </section>
 
@@ -502,9 +506,6 @@
 
 
   <script>
-
-    const APPS_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec";
 
     const PRICE_PER_BLANKET = 40;
 
@@ -522,6 +523,13 @@
 
     const responseMessage =
       document.getElementById("responseMessage");
+
+    const submissionFrame =
+      document.getElementById("submissionFrame");
+
+
+    let submitting = false;
+    let submittedQuantity = 1;
 
 
     function updateTotal() {
@@ -557,186 +565,103 @@
 
     form.addEventListener(
       "submit",
-      async function(event) {
+      function(event) {
 
-        event.preventDefault();
+        if (!form.checkValidity()) {
 
-        if (
-          !form.checkValidity()
-        ) {
+          event.preventDefault();
 
           form.reportValidity();
+
           return;
         }
+
+
+        submittedQuantity =
+          parseInt(
+            quantityInput.value,
+            10
+          ) || 1;
+
+
+        submitting = true;
 
 
         submitButton.disabled =
           true;
 
+
         submitButton.textContent =
           "Submitting Order...";
 
-
-        responseMessage.className =
-          "message";
 
         responseMessage.style.display =
           "none";
 
 
-        const quantity =
-          parseInt(
-            quantityInput.value,
-            10
-          );
+        responseMessage.className =
+          "message";
+
+      }
+    );
+
+
+    submissionFrame.addEventListener(
+      "load",
+      function() {
+
+        if (!submitting) {
+          return;
+        }
+
+
+        submitting = false;
 
 
         const total =
-          quantity *
+          submittedQuantity *
           PRICE_PER_BLANKET;
 
 
-        const data =
-          new URLSearchParams();
+        responseMessage.innerHTML =
+          "<strong>Order received!</strong><br>" +
+          "Your order has been submitted.<br>" +
+          "Total: $" +
+          total.toFixed(2) +
+          "<br><br>" +
+          "Please check your email for your order confirmation and order number.";
 
 
-        data.append(
-          "firstName",
-          document
-            .getElementById(
-              "firstName"
-            )
-            .value
-            .trim()
-        );
+        responseMessage.className =
+          "message success";
 
 
-        data.append(
-          "lastName",
-          document
-            .getElementById(
-              "lastName"
-            )
-            .value
-            .trim()
-        );
+        responseMessage.style.display =
+          "block";
 
 
-        data.append(
-          "phone",
-          document
-            .getElementById(
-              "phone"
-            )
-            .value
-            .trim()
-        );
+        form.reset();
 
 
-        data.append(
-          "email",
-          document
-            .getElementById(
-              "email"
-            )
-            .value
-            .trim()
-        );
+        quantityInput.value =
+          1;
 
 
-        data.append(
-          "quantity",
-          quantity
-        );
-
-
-        data.append(
-          "paymentMethod",
-          document
-            .getElementById(
-              "paymentMethod"
-            )
-            .value
-        );
-
-
-        try {
-
-          await fetch(
-            APPS_SCRIPT_URL,
-            {
-              method: "POST",
-
-              mode: "no-cors",
-
-              headers: {
-                "Content-Type":
-                  "application/x-www-form-urlencoded;charset=UTF-8"
-              },
-
-              body:
-                data.toString()
-            }
-          );
-
-
-          responseMessage.innerHTML =
-            "<strong>Order received!</strong><br>" +
-            "Your order has been submitted.<br>" +
-            "Total: $" +
-            total.toFixed(2) +
-            "<br><br>" +
-            "Please check your email for your order confirmation and order number.";
-
-
-          responseMessage.className =
-            "message success";
-
-          responseMessage.style.display =
-            "block";
-
-
-          form.reset();
-
-          quantityInput.value =
-            1;
-
-          updateTotal();
-
-
-          responseMessage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-
-
-        } catch (error) {
-
-          console.error(
-            "Order submission error:",
-            error
-          );
-
-
-          responseMessage.innerHTML =
-            "<strong>Unable to submit order.</strong><br>" +
-            "Please try again.";
-
-
-          responseMessage.className =
-            "message error";
-
-          responseMessage.style.display =
-            "block";
-
-        }
+        updateTotal();
 
 
         submitButton.disabled =
           false;
 
+
         submitButton.textContent =
           "Place Order";
+
+
+        responseMessage.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
       }
     );
@@ -747,5 +672,4 @@
   </script>
 
 </body>
-
 </html>
