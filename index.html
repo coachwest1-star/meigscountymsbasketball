@@ -58,25 +58,20 @@
       color: var(--text);
     }
 
-    /* HEADER */
-
     .header {
       background: var(--black);
       color: white;
-
       border-bottom: 5px solid var(--orange);
     }
 
     .header-inner {
       max-width: 1450px;
       margin: auto;
-
       padding: 16px 30px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 20px;
     }
 
@@ -90,13 +85,9 @@
       font-size: 16px;
     }
 
-    /* MAIN */
-
     .page {
       max-width: 1450px;
-
       margin: auto;
-
       padding: 32px;
 
       display: grid;
@@ -106,17 +97,12 @@
         minmax(450px, 1fr);
 
       gap: 28px;
-
       align-items: start;
     }
 
-    /* BLANKET IMAGE CARD */
-
     .product-card {
       background: var(--black);
-
       overflow: hidden;
-
       border-radius: 16px;
 
       box-shadow:
@@ -131,32 +117,24 @@
 
     .product-footer {
       background: var(--black);
-
       color: white;
-
       padding: 20px 24px;
     }
 
     .price {
       color: #ffd5bc;
-
       font-size: 32px;
       font-weight: 800;
     }
 
     .payment-note {
       margin-top: 2px;
-
       font-size: 17px;
     }
 
-    /* FORM */
-
     .form-card {
       background: white;
-
       border-radius: 18px;
-
       padding: 32px;
 
       box-shadow:
@@ -165,23 +143,18 @@
 
     .form-card h2 {
       font-size: 30px;
-
       margin-bottom: 18px;
     }
 
     .intro {
       font-size: 17px;
-
       margin-bottom: 28px;
-
       line-height: 1.45;
     }
 
     .row {
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 16px;
     }
 
@@ -191,76 +164,48 @@
 
     label {
       display: block;
-
       font-size: 16px;
       font-weight: 700;
-
       margin-bottom: 7px;
     }
 
     input,
     select {
       width: 100%;
-
       border: 1px solid #b8b8b8;
-
       border-radius: 9px;
-
       padding: 14px 13px;
-
       font-size: 17px;
-
       background: white;
-
       color: #111;
     }
 
     input:focus,
     select:focus {
       outline: 3px solid rgba(198, 83, 32, 0.18);
-
       border-color: var(--orange);
     }
 
-    /* TOTAL */
-
     .total-box {
       background: #f6f0e6;
-
       border-left: 7px solid var(--orange);
-
       border-radius: 10px;
-
       padding: 18px;
-
       margin-bottom: 20px;
-
       font-size: 21px;
-
       font-weight: 800;
     }
 
-    /* BUTTON */
-
     .submit-button {
       width: 100%;
-
       border: none;
-
       background: var(--orange);
-
       color: white;
-
       padding: 16px;
-
       border-radius: 10px;
-
       font-size: 20px;
-
       font-weight: 800;
-
       cursor: pointer;
-
       transition: 0.15s ease;
     }
 
@@ -273,64 +218,40 @@
       cursor: not-allowed;
     }
 
-    /* MESSAGE */
-
     .message {
       display: none;
-
       padding: 17px;
-
       border-radius: 10px;
-
       margin-top: 18px;
-
       font-size: 16px;
-
       line-height: 1.4;
     }
 
     .success {
       display: block;
-
       background: var(--success-bg);
-
       color: var(--success-text);
     }
 
     .error {
       display: block;
-
       background: var(--error-bg);
-
       color: var(--error-text);
     }
-
-    /* MOBILE */
 
     @media (max-width: 900px) {
 
       .page {
         grid-template-columns: 1fr;
-
         padding: 20px;
       }
 
-      .product-card {
-        max-width: 650px;
-
-        margin: auto;
-
-        width: 100%;
-      }
-
+      .product-card,
       .form-card {
         max-width: 650px;
-
         margin: auto;
-
         width: 100%;
       }
-
     }
 
     @media (max-width: 600px) {
@@ -355,15 +276,12 @@
       .form-card h2 {
         font-size: 26px;
       }
-
     }
 
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER -->
 
   <header class="header">
 
@@ -386,18 +304,9 @@
   </header>
 
 
-  <!-- MAIN PAGE -->
-
   <main class="page">
 
-
-    <!-- BLANKET -->
-
     <section class="product-card">
-
-      <!--
-        CHANGE THIS IMAGE URL TO YOUR BLANKET PHOTO.
-      -->
 
       <img
         class="blanket-image"
@@ -419,9 +328,6 @@
 
     </section>
 
-
-
-    <!-- ORDER FORM -->
 
     <section class="form-card">
 
@@ -477,7 +383,6 @@
         </div>
 
 
-
         <div class="field">
 
           <label for="phone">
@@ -493,7 +398,6 @@
           >
 
         </div>
-
 
 
         <div class="field">
@@ -513,7 +417,6 @@
         </div>
 
 
-
         <div class="row">
 
           <div class="field">
@@ -527,7 +430,7 @@
               name="quantity"
               type="number"
               min="1"
-              max="20"
+              max="25"
               value="1"
               required
             >
@@ -598,19 +501,12 @@
   </main>
 
 
-
   <script>
-
-    /*
-      YOUR EXISTING APPS SCRIPT WEB APP
-    */
 
     const APPS_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec";
 
-
     const PRICE_PER_BLANKET = 40;
-
 
     const form =
       document.getElementById("orderForm");
@@ -628,14 +524,13 @@
       document.getElementById("responseMessage");
 
 
-    /*
-      UPDATE TOTAL
-    */
-
     function updateTotal() {
 
       let quantity =
-        parseInt(quantityInput.value, 10);
+        parseInt(
+          quantityInput.value,
+          10
+        );
 
       if (
         isNaN(quantity) ||
@@ -645,11 +540,12 @@
       }
 
       const total =
-        quantity * PRICE_PER_BLANKET;
+        quantity *
+        PRICE_PER_BLANKET;
 
       totalDisplay.textContent =
-        "$" + total.toFixed(2);
-
+        "$" +
+        total.toFixed(2);
     }
 
 
@@ -659,79 +555,23 @@
     );
 
 
-    /*
-      GENERATE ORDER NUMBER
-    */
-
-    function generateOrderNumber() {
-
-      const now = new Date();
-
-      const year =
-        now.getFullYear();
-
-      const month =
-        String(now.getMonth() + 1)
-          .padStart(2, "0");
-
-      const day =
-        String(now.getDate())
-          .padStart(2, "0");
-
-      const hours =
-        String(now.getHours())
-          .padStart(2, "0");
-
-      const minutes =
-        String(now.getMinutes())
-          .padStart(2, "0");
-
-      const seconds =
-        String(now.getSeconds())
-          .padStart(2, "0");
-
-      const random =
-        Math.floor(
-          100 + Math.random() * 900
-        );
-
-      return (
-        "MC-" +
-        year +
-        month +
-        day +
-        "-" +
-        hours +
-        minutes +
-        seconds +
-        "-" +
-        random
-      );
-
-    }
-
-
-    /*
-      SUBMIT ORDER
-    */
-
     form.addEventListener(
       "submit",
       async function(event) {
 
         event.preventDefault();
 
-
-        if (!form.checkValidity()) {
+        if (
+          !form.checkValidity()
+        ) {
 
           form.reportValidity();
-
           return;
-
         }
 
 
-        submitButton.disabled = true;
+        submitButton.disabled =
+          true;
 
         submitButton.textContent =
           "Submitting Order...";
@@ -756,38 +596,16 @@
           PRICE_PER_BLANKET;
 
 
-        const orderNumber =
-          generateOrderNumber();
-
-
-        /*
-          URLSearchParams sends the data like
-          a regular HTML form.
-
-          This works well with Apps Script
-          e.parameter.
-        */
-
         const data =
           new URLSearchParams();
 
 
         data.append(
-          "action",
-          "newOrder"
-        );
-
-
-        data.append(
-          "orderNumber",
-          orderNumber
-        );
-
-
-        data.append(
           "firstName",
           document
-            .getElementById("firstName")
+            .getElementById(
+              "firstName"
+            )
             .value
             .trim()
         );
@@ -796,7 +614,9 @@
         data.append(
           "lastName",
           document
-            .getElementById("lastName")
+            .getElementById(
+              "lastName"
+            )
             .value
             .trim()
         );
@@ -805,7 +625,9 @@
         data.append(
           "phone",
           document
-            .getElementById("phone")
+            .getElementById(
+              "phone"
+            )
             .value
             .trim()
         );
@@ -814,7 +636,9 @@
         data.append(
           "email",
           document
-            .getElementById("email")
+            .getElementById(
+              "email"
+            )
             .value
             .trim()
         );
@@ -829,25 +653,14 @@
         data.append(
           "paymentMethod",
           document
-            .getElementById("paymentMethod")
+            .getElementById(
+              "paymentMethod"
+            )
             .value
         );
 
 
-        data.append(
-          "total",
-          total
-        );
-
-
         try {
-
-          /*
-            no-cors prevents Facebook/Safari/Chrome
-            from blocking the Apps Script response.
-
-            The customer stays on THIS webpage.
-          */
 
           await fetch(
             APPS_SCRIPT_URL,
@@ -861,23 +674,23 @@
                   "application/x-www-form-urlencoded;charset=UTF-8"
               },
 
-              body: data.toString()
+              body:
+                data.toString()
             }
           );
 
 
           responseMessage.innerHTML =
             "<strong>Order received!</strong><br>" +
-            "Order number: " +
-            orderNumber +
-            "<br>" +
+            "Your order has been submitted.<br>" +
             "Total: $" +
-            total.toFixed(2);
+            total.toFixed(2) +
+            "<br><br>" +
+            "Please check your email for your order confirmation and order number.";
 
 
           responseMessage.className =
             "message success";
-
 
           responseMessage.style.display =
             "block";
@@ -885,9 +698,8 @@
 
           form.reset();
 
-
-          quantityInput.value = 1;
-
+          quantityInput.value =
+            1;
 
           updateTotal();
 
@@ -898,8 +710,7 @@
           });
 
 
-        }
-        catch (error) {
+        } catch (error) {
 
           console.error(
             "Order submission error:",
@@ -915,14 +726,14 @@
           responseMessage.className =
             "message error";
 
-
           responseMessage.style.display =
             "block";
 
         }
 
 
-        submitButton.disabled = false;
+        submitButton.disabled =
+          false;
 
         submitButton.textContent =
           "Place Order";
