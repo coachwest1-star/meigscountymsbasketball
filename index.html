@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Meigs County Tigers - Blanket Sale</title>
 
-  <meta name="description" content="Official Meigs County Tigers Blanket Fundraiser Order Form">
+  <meta
+    name="description"
+    content="Official Meigs County Tigers Blanket Fundraiser Order Form"
+  >
 
   <style>
+
     :root {
-      --primary: #111111;
-      --gold: #d97706;
-      --gold-light: #fef3c7;
-      --gold-dark: #92400e;
-      --background: #f8fafc;
+      --black: #111111;
+      --orange: #c65320;
+      --orange-dark: #a94017;
+      --background: #f3eee5;
       --card: #ffffff;
-      --text: #1e293b;
+      --text: #222222;
       --muted: #64748b;
-      --border: #e2e8f0;
+      --border: #d1d5db;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --error-bg: #fee2e2;
+      --error-text: #991b1b;
     }
 
     * {
@@ -33,9 +45,6 @@
     }
 
     body {
-      background: var(--background);
-      color: var(--text);
-
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -45,248 +54,887 @@
         Arial,
         sans-serif;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      min-height: 100vh;
-      padding: 24px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 520px;
-
-      background: var(--card);
-
-      border-radius: 22px;
-
-      padding: 42px 32px;
-
-      text-align: center;
-
-      box-shadow:
-        0 20px 40px rgba(15, 23, 42, 0.08),
-        0 4px 12px rgba(15, 23, 42, 0.05);
-    }
-
-    .badge {
-      display: inline-block;
-
-      background: var(--gold-light);
-      color: var(--gold-dark);
-
-      font-size: 14px;
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1px;
-
-      padding: 8px 18px;
-
-      border-radius: 999px;
-
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      color: var(--primary);
-
-      font-size: clamp(28px, 6vw, 40px);
-      line-height: 1.15;
-
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-
-      font-size: 20px;
-
-      margin-bottom: 32px;
-    }
-
-    .btn {
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-
-      min-height: 64px;
-
-      background: var(--primary);
-      color: #ffffff;
-
-      font-size: 20px;
-      font-weight: 700;
-
-      text-decoration: none;
-
-      border-radius: 14px;
-
-      padding: 18px 24px;
-
-      cursor: pointer;
-
-      transition:
-        transform 0.15s ease,
-        background-color 0.15s ease,
-        box-shadow 0.15s ease;
-
-      box-shadow:
-        0 8px 15px rgba(0, 0, 0, 0.12);
-    }
-
-    .btn:hover {
-      background: #292929;
-
-      transform: translateY(-1px);
-
-      box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.16);
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .instructions {
-      margin-top: 32px;
-
-      padding-top: 26px;
-
-      border-top: 1px solid var(--border);
-
-      color: var(--muted);
-
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .instructions strong {
+      background: var(--background);
       color: var(--text);
     }
 
-    .instructions p + p {
-      margin-top: 7px;
+    /* HEADER */
+
+    .header {
+      background: var(--black);
+      color: white;
+
+      border-bottom: 5px solid var(--orange);
     }
 
-    .small-note {
-      margin-top: 18px;
+    .header-inner {
+      max-width: 1450px;
+      margin: auto;
 
-      color: #94a3b8;
+      padding: 16px 30px;
 
-      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .header h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.1;
+    }
+
+    .header p {
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    /* MAIN */
+
+    .page {
+      max-width: 1450px;
+
+      margin: auto;
+
+      padding: 32px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(350px, 1fr)
+        minmax(450px, 1fr);
+
+      gap: 28px;
+
+      align-items: start;
+    }
+
+    /* BLANKET IMAGE CARD */
+
+    .product-card {
+      background: var(--black);
+
+      overflow: hidden;
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.13);
+    }
+
+    .blanket-image {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .product-footer {
+      background: var(--black);
+
+      color: white;
+
+      padding: 20px 24px;
+    }
+
+    .price {
+      color: #ffd5bc;
+
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .payment-note {
+      margin-top: 2px;
+
+      font-size: 17px;
+    }
+
+    /* FORM */
+
+    .form-card {
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.10);
+    }
+
+    .form-card h2 {
+      font-size: 30px;
+
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      font-size: 17px;
+
+      margin-bottom: 28px;
+
       line-height: 1.45;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 16px;
-      }
+    .row {
+      display: grid;
 
-      .card {
-        padding: 34px 22px;
-        border-radius: 18px;
-      }
+      grid-template-columns: 1fr 1fr;
 
-      .subtitle {
-        font-size: 18px;
-      }
-
-      .btn {
-        font-size: 18px;
-        min-height: 60px;
-      }
-
-      .instructions {
-        font-size: 15px;
-      }
+      gap: 16px;
     }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+
+      font-size: 16px;
+      font-weight: 700;
+
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+
+      border: 1px solid #b8b8b8;
+
+      border-radius: 9px;
+
+      padding: 14px 13px;
+
+      font-size: 17px;
+
+      background: white;
+
+      color: #111;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(198, 83, 32, 0.18);
+
+      border-color: var(--orange);
+    }
+
+    /* TOTAL */
+
+    .total-box {
+      background: #f6f0e6;
+
+      border-left: 7px solid var(--orange);
+
+      border-radius: 10px;
+
+      padding: 18px;
+
+      margin-bottom: 20px;
+
+      font-size: 21px;
+
+      font-weight: 800;
+    }
+
+    /* BUTTON */
+
+    .submit-button {
+      width: 100%;
+
+      border: none;
+
+      background: var(--orange);
+
+      color: white;
+
+      padding: 16px;
+
+      border-radius: 10px;
+
+      font-size: 20px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: 0.15s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--orange-dark);
+    }
+
+    .submit-button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    /* MESSAGE */
+
+    .message {
+      display: none;
+
+      padding: 17px;
+
+      border-radius: 10px;
+
+      margin-top: 18px;
+
+      font-size: 16px;
+
+      line-height: 1.4;
+    }
+
+    .success {
+      display: block;
+
+      background: var(--success-bg);
+
+      color: var(--success-text);
+    }
+
+    .error {
+      display: block;
+
+      background: var(--error-bg);
+
+      color: var(--error-text);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .page {
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+      }
+
+      .product-card {
+        max-width: 650px;
+
+        margin: auto;
+
+        width: 100%;
+      }
+
+      .form-card {
+        max-width: 650px;
+
+        margin: auto;
+
+        width: 100%;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .header-inner {
+        padding: 15px 18px;
+      }
+
+      .page {
+        padding: 15px;
+      }
+
+      .form-card {
+        padding: 24px 20px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-card h2 {
+        font-size: 26px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <main class="card">
+  <!-- HEADER -->
 
-    <div class="badge">
-      Official Fundraiser
-    </div>
+  <header class="header">
 
-    <h1>
-      Meigs County Tigers
-    </h1>
+    <div class="header-inner">
 
-    <p class="subtitle">
-      Blanket Order Form
-    </p>
+      <div>
 
-    <a
-      id="orderButton"
-      class="btn"
-      href="https://script.google.com/a/macros/pcsstn.com/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec"
-    >
-      Open Order Form&nbsp; →
-    </a>
+        <h1>
+          Meigs County Tigers Blanket Sale
+        </h1>
 
-    <div class="instructions">
+        <p>
+          Order your blanket today for $40 each.
+        </p>
 
-      <p>
-        <strong>Facebook / Messenger users:</strong>
-      </p>
-
-      <p>
-        If the order form does not open correctly,
-        tap the <strong>•••</strong> menu in the top-right corner
-        and select <strong>Open in Browser</strong>,
-        <strong>Open in Safari</strong>, or
-        <strong>Open in Chrome</strong>.
-      </p>
+      </div>
 
     </div>
 
-    <p class="small-note">
-      The order form will open securely through Google Apps Script.
-    </p>
+  </header>
+
+
+  <!-- MAIN PAGE -->
+
+  <main class="page">
+
+
+    <!-- BLANKET -->
+
+    <section class="product-card">
+
+      <!--
+        CHANGE THIS IMAGE URL TO YOUR BLANKET PHOTO.
+      -->
+
+      <img
+        class="blanket-image"
+        src="YOUR-BLANKET-IMAGE-URL-HERE"
+        alt="Meigs County Tigers Blanket"
+      >
+
+      <div class="product-footer">
+
+        <div class="price">
+          $40 each
+        </div>
+
+        <div class="payment-note">
+          Payment may be made by cash or check.
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ORDER FORM -->
+
+    <section class="form-card">
+
+      <h2>
+        Blanket Order Form
+      </h2>
+
+      <p class="intro">
+        Complete the form below. You will receive an email
+        confirmation and another email when your order is
+        ready for pickup.
+      </p>
+
+
+      <form id="orderForm">
+
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="firstName">
+              First name *
+            </label>
+
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              autocomplete="given-name"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="lastName">
+              Last name *
+            </label>
+
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              autocomplete="family-name"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <div class="field">
+
+          <label for="phone">
+            Phone number *
+          </label>
+
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            required
+          >
+
+        </div>
+
+
+
+        <div class="field">
+
+          <label for="email">
+            Email address *
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="quantity">
+              Number of blankets *
+            </label>
+
+            <input
+              id="quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              max="20"
+              value="1"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="paymentMethod">
+              How will you be paying? *
+            </label>
+
+            <select
+              id="paymentMethod"
+              name="paymentMethod"
+              required
+            >
+
+              <option value="">
+                Choose one
+              </option>
+
+              <option value="Cash">
+                Cash
+              </option>
+
+              <option value="Check">
+                Check
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="total-box">
+
+          Order total:
+          <span id="orderTotal">
+            $40.00
+          </span>
+
+        </div>
+
+
+        <button
+          id="submitButton"
+          class="submit-button"
+          type="submit"
+        >
+          Place Order
+        </button>
+
+
+        <div
+          id="responseMessage"
+          class="message"
+        ></div>
+
+
+      </form>
+
+    </section>
 
   </main>
 
+
+
   <script>
+
     /*
-      IMPORTANT:
-      Do not use a Markdown-formatted link here.
-
-      CORRECT:
-      https://script.google.com/macros/s/DEPLOYMENT_ID/exec
-
-      WRONG:
-      [https://script.google.com/...](https://script.google.com/...)
+      YOUR EXISTING APPS SCRIPT WEB APP
     */
 
-    const FORM_URL =
+    const APPS_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbxqXrr2X9oLeesUz_1aIMGU9QdqLb0ZO-PTouv62-d4ivts-31wmkBk9HwW-HSy7FyOfA/exec";
 
-    const orderButton = document.getElementById("orderButton");
 
-    orderButton.href = FORM_URL;
+    const PRICE_PER_BLANKET = 40;
+
+
+    const form =
+      document.getElementById("orderForm");
+
+    const quantityInput =
+      document.getElementById("quantity");
+
+    const totalDisplay =
+      document.getElementById("orderTotal");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const responseMessage =
+      document.getElementById("responseMessage");
+
 
     /*
-      Use a normal same-window navigation.
-
-      This tends to behave more reliably inside
-      Facebook and Messenger than target="_blank".
+      UPDATE TOTAL
     */
 
-    orderButton.addEventListener("click", function(event) {
-      event.preventDefault();
+    function updateTotal() {
 
-      window.location.href = FORM_URL;
-    });
+      let quantity =
+        parseInt(quantityInput.value, 10);
+
+      if (
+        isNaN(quantity) ||
+        quantity < 1
+      ) {
+        quantity = 1;
+      }
+
+      const total =
+        quantity * PRICE_PER_BLANKET;
+
+      totalDisplay.textContent =
+        "$" + total.toFixed(2);
+
+    }
+
+
+    quantityInput.addEventListener(
+      "input",
+      updateTotal
+    );
+
+
+    /*
+      GENERATE ORDER NUMBER
+    */
+
+    function generateOrderNumber() {
+
+      const now = new Date();
+
+      const year =
+        now.getFullYear();
+
+      const month =
+        String(now.getMonth() + 1)
+          .padStart(2, "0");
+
+      const day =
+        String(now.getDate())
+          .padStart(2, "0");
+
+      const hours =
+        String(now.getHours())
+          .padStart(2, "0");
+
+      const minutes =
+        String(now.getMinutes())
+          .padStart(2, "0");
+
+      const seconds =
+        String(now.getSeconds())
+          .padStart(2, "0");
+
+      const random =
+        Math.floor(
+          100 + Math.random() * 900
+        );
+
+      return (
+        "MC-" +
+        year +
+        month +
+        day +
+        "-" +
+        hours +
+        minutes +
+        seconds +
+        "-" +
+        random
+      );
+
+    }
+
+
+    /*
+      SUBMIT ORDER
+    */
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        if (!form.checkValidity()) {
+
+          form.reportValidity();
+
+          return;
+
+        }
+
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "Submitting Order...";
+
+
+        responseMessage.className =
+          "message";
+
+        responseMessage.style.display =
+          "none";
+
+
+        const quantity =
+          parseInt(
+            quantityInput.value,
+            10
+          );
+
+
+        const total =
+          quantity *
+          PRICE_PER_BLANKET;
+
+
+        const orderNumber =
+          generateOrderNumber();
+
+
+        /*
+          URLSearchParams sends the data like
+          a regular HTML form.
+
+          This works well with Apps Script
+          e.parameter.
+        */
+
+        const data =
+          new URLSearchParams();
+
+
+        data.append(
+          "action",
+          "newOrder"
+        );
+
+
+        data.append(
+          "orderNumber",
+          orderNumber
+        );
+
+
+        data.append(
+          "firstName",
+          document
+            .getElementById("firstName")
+            .value
+            .trim()
+        );
+
+
+        data.append(
+          "lastName",
+          document
+            .getElementById("lastName")
+            .value
+            .trim()
+        );
+
+
+        data.append(
+          "phone",
+          document
+            .getElementById("phone")
+            .value
+            .trim()
+        );
+
+
+        data.append(
+          "email",
+          document
+            .getElementById("email")
+            .value
+            .trim()
+        );
+
+
+        data.append(
+          "quantity",
+          quantity
+        );
+
+
+        data.append(
+          "paymentMethod",
+          document
+            .getElementById("paymentMethod")
+            .value
+        );
+
+
+        data.append(
+          "total",
+          total
+        );
+
+
+        try {
+
+          /*
+            no-cors prevents Facebook/Safari/Chrome
+            from blocking the Apps Script response.
+
+            The customer stays on THIS webpage.
+          */
+
+          await fetch(
+            APPS_SCRIPT_URL,
+            {
+              method: "POST",
+
+              mode: "no-cors",
+
+              headers: {
+                "Content-Type":
+                  "application/x-www-form-urlencoded;charset=UTF-8"
+              },
+
+              body: data.toString()
+            }
+          );
+
+
+          responseMessage.innerHTML =
+            "<strong>Order received!</strong><br>" +
+            "Order number: " +
+            orderNumber +
+            "<br>" +
+            "Total: $" +
+            total.toFixed(2);
+
+
+          responseMessage.className =
+            "message success";
+
+
+          responseMessage.style.display =
+            "block";
+
+
+          form.reset();
+
+
+          quantityInput.value = 1;
+
+
+          updateTotal();
+
+
+          responseMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+
+        }
+        catch (error) {
+
+          console.error(
+            "Order submission error:",
+            error
+          );
+
+
+          responseMessage.innerHTML =
+            "<strong>Unable to submit order.</strong><br>" +
+            "Please try again.";
+
+
+          responseMessage.className =
+            "message error";
+
+
+          responseMessage.style.display =
+            "block";
+
+        }
+
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "Place Order";
+
+      }
+    );
+
+
+    updateTotal();
+
   </script>
 
 </body>
+
 </html>
